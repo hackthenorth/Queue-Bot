@@ -1,3 +1,6 @@
+import * as dotenv from "dotenv";
+dotenv.config();
+
 import DBL from "dblapi.js";
 import {
    Guild,
@@ -528,7 +531,7 @@ async function checkPatchNotes() {
             for (const [displayChannel, prefix] of displayChannels) {
                const patchNote: PatchNote = JSON.parse(JSON.stringify(_patchNote));
                patchNote.message.embed.fields.forEach((field) => {
-                  field.value = (field.value as string).replaceAll(config.prefix, prefix);
+                  field.value = (field.value as string).split(config.prefix).join(prefix);
                });
                displayChannel.send(patchNote.message).catch(() => null);
             }

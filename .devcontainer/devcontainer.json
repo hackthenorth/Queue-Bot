@@ -1,0 +1,11 @@
+{
+	"name": "Queue Bot",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "qb-bot",
+	"workspaceFolder": "/app",
+	"extensions": [
+		"dbaeumer.vscode-eslint"
+	]
+}

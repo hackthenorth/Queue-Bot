@@ -231,8 +231,8 @@ export class MessagingUtils {
 
    public static removeMentions(str: string, channel: TextChannel | NewsChannel | VoiceChannel): string {
       return str
-         .replaceAll(/(<(@!?|#)\w+>)/gi, "")
-         .replaceAll(channel.name, "")
+         .replace(/(<(@!?|#)\w+>)/gi, "")
+         .replace(channel.name, "")
          .substring(0, 128)
          .trim();
    }

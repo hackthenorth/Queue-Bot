@@ -307,7 +307,7 @@ export class Commands {
    public static async kickMember(parsed: ParsedArguments): Promise<void> {
       const message = parsed.message;
       // remove user mentions from text
-      parsed.arguments = parsed.arguments.replaceAll(/<@!?\d+>/gi, "").trim();
+      parsed.arguments = parsed.arguments.replace(/<@!?\d+>/gi, "").trim();
       // Parse members id
       const memberIdsToKick = message.mentions.members.array().map((member) => member.id);
       if (memberIdsToKick.length === 0) return;

@@ -24,8 +24,45 @@ export class Base {
       return member.id === member.guild.me.id;
    }
 
-   protected static config: ConfigJson = JSON.parse(readFileSync("../config/config.json", "utf8"));
-   protected static cmdConfig: CommandConfigJson = JSON.parse(readFileSync("../config/command-config.json", "utf8"));
+   protected static config: ConfigJson = {
+      token: process.env.QB_TOKEN,
+      topGgToken: process.env.QB_TOP_GG_TOKEN,
+      color: process.env.QB_COLOR,
+      databaseType: process.env.QB_DB_TYPE,
+      databaseHost: process.env.QB_DB_HOST,
+      databaseName: process.env.QB_DB_NAME,
+      databaseUsername: process.env.QB_DB_USERNAME,
+      databasePassword: process.env.QB_DB_PASSWORD,
+      gracePeriod: process.env.QB_GRACE_PERIOD,
+      joinEmoji: process.env.QB_JOIN_EMOJI,
+      permissionsRegexp: process.env.QB_PERMISSIONS_REGEXP,
+      prefix: process.env.QB_PREFIX,
+   };
+   protected static cmdConfig: CommandConfigJson = {
+      autofillCmd: process.env.QB_CMD_AUTOFILL,
+      blacklistCmd: process.env.QB_CMD_BLACKLIST,
+      cleanupCmd: process.env.QB_CMD_CLEANUP,
+      clearCmd: process.env.QB_CMD_CLEAR,
+      colorCmd: process.env.QB_CMD_COLOR,
+      displayCmd: process.env.QB_CMD_DISPLAY,
+      gracePeriodCmd: process.env.QB_CMD_GRACE_PERIOD,
+      headerCmd: process.env.QB_CMD_HEADER,
+      helpCmd: process.env.QB_CMD_HELP,
+      joinCmd: process.env.QB_CMD_JOIN,
+      kickCmd: process.env.QB_CMD_KICK,
+      limitCmd: process.env.QB_CMD_LIMIT,
+      mentionCmd: process.env.QB_CMD_MENTION,
+      modeCmd: process.env.QB_CMD_MODE,
+      myQueuesCmd: process.env.QB_CMD_MY_QUEUES,
+      nextCmd: process.env.QB_CMD_NEXT,
+      prefixCmd: process.env.QB_CMD_PREFIX,
+      pullNumCmd: process.env.QB_CMD_PULL_NUM,
+      queueCmd: process.env.QB_CMD_QUEUE,
+      queueDeleteCmd: process.env.QB_CMD_QUEUE_DELETE,
+      shuffleCmd: process.env.QB_CMD_SHUFFLE,
+      startCmd: process.env.QB_CMD_START,
+      whitelistCmd: process.env.QB_CMD_WHITELIST,
+   };
 
    protected static knex = Knex({
       client: Base.config.databaseType,
