@@ -131,4 +131,4 @@ If a command that expects a channel name is not given one, the current text chan
 
    Use `npm run dev` to have the bot autoreload on code change. 
 
-   If you get an error at boot, there is something wrong in your config.json. When you close command prompt, the bot will stop.
+   If you get an error at boot, there is something wrong in your config. When you close command prompt, the bot will stop.
