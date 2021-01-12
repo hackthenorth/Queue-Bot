@@ -4,7 +4,7 @@
    "description": "A Discord bot!",
    "main": "build/bot.js",
    "scripts": {
-      "format": "eslint src/** --fix --no-error-on-unmatched-pattern",
+      "format": "eslint src/**/*.ts --fix --no-error-on-unmatched-pattern",
       "start": "ts-node src/bot.ts",
       "dev": "ts-node-dev --respawn src/bot.ts"
    },
@@ -34,7 +34,7 @@
       "eslint-plugin-node": "^11.1.0",
       "eslint-plugin-prettier": "^3.3.0",
       "eslint-plugin-promise": "^4.2.1",
-      "prettier": "2.2.0",
+      "prettier": "^2.2.1",
       "ts-node-dev": "^1.1.1",
       "typescript": "^4.1.3"
    }

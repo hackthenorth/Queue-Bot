@@ -22,7 +22,7 @@ module.exports = {
     'prettier/prettier': ["warn", {
         "endOfLine": "auto",
         "printWidth": 120,
-        "tabWidth": 3
+        "tabWidth": 2
     }],
     'no-console': 'off'
   }
