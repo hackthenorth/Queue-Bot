@@ -74,59 +74,61 @@ If a command that expects a channel name is not given one, the current text chan
 		`CREATE DATABASE queue;`  
 	3g. Close command prompt.  
 4. Open the Queue Bot folder.  
-5. Modify `config/config.json`:  
+5. Modify config environment variables:  
+	Copy `.env.sample` to `.env` to modify the environment config through a file. This file is gitignored.
+
+	Environment variables are prefixed with `QB_`
+
 	If you followed all of Step 3, you only need to update the REQUIRED fields in the table below.  
   
 | REQUIRED Config Fields | Description                                                                                                                       | Default      |
 |------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-|
-| prefix                 | Command prefix                                                                                                                    | `!` |
-| token                  | Bot token. Found in the Discord Developer Portal for the bot you created in Step 1. See image of token location below this table. | |
-| databasePassword       | Database login password                                                                                                           | |
+| QB_PREFIX                 | Command prefix                                                                                                                    | `!` |
+| QB_TOKEN                  | Bot token. Found in the Discord Developer Portal for the bot you created in Step 1. See image of token location below this table. | |
+| QB_DB_PASSWORD       | Database login password                                                                                                           | |
   
 | Optional Config Fields | Description                                                                                                                       | |
 |------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-|
-| color                  | The color of bot messages.                                                                                                        | |
-| databaseUsername		 | Database login username                                                                                                           | `postgres` |
-| databaseName           | Database name                                                                                                                     | `queue` |
-| databaseHost           | Database host url                                                                                                                 | `localhost` |
-| databaseType           | Type of database for queue storage.                                                                                               | `postgresql` |
-| gracePeriod            | Number of seconds a user can leave the queue without being removed                                                                | `0` |
-| permissionsRegexp      | What server roles can use bot commands. Uses RegExp. Accepts "mod" and "mods" by default.                                         | `\\bmod(erator)?s?\\b|\\badmin(istrator)?s?\\b` |
-| topGgToken             | Token for updating top.gg server count. This should be left blank.                                                                | |
+| QB_COLOR                  | The color of bot messages.                                                                                                        | |
+| QB_DB_USERNAME		 | Database login username                                                                                                           | `postgres` |
+| QB_DB_NAME           | Database name                                                                                                                     | `queue` |
+| QB_DB_HOST           | Database host url                                                                                                                 | `localhost` |
+| QB_DB_TYPE           | Type of database for queue storage.                                                                                               | `postgresql` |
+| QB_GRACE_PERIOD            | Number of seconds a user can leave the queue without being removed                                                                | `0` |
+| QB_PERMISSIONS_REGEXP      | What server roles can use bot commands. Uses RegExp. Accepts "mod" and "mods" by default.                                         | `\\bmod(erator)?s?\\b|\\badmin(istrator)?s?\\b` |
+| QB_TOP_GG_TOKEN             | Token for updating top.gg server count. This should be left blank.                                                                | |
 
 | Config Command Fields  | Description                                                                                                                       | |
 |------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-|
-| autofillCmd            | Command to toggle autofill.                                                                                                       | `autofill` |
-| blacklistCmd           | Command to set and display blacklist.                                                                                             | `blacklist` |
-| cleanupCmd             | Command to toggle command cleanup.                                                                                                | `cleanup` |
-| clearCmd               | Command to clear the queue.                                                                                                       | `clear` |
-| colorCmd               | Command to set the color.                                                                                                         | `color` |
-| displayCmd             | Command to display a queue in a text channel.                                                                                     | `display` |
-| gracePeriodCmd         | Command to set the grace period.                                                                                                  | `grace` |
-| headerCmd              | Command to set the header of a queue.                                                                                             | `header` |
-| helpCmd                | Command to display the help information.                                                                                          | `help` |
-| joinCmd                | Command to join a text channel queue.                                                                                             | `join` |
-| kickCmd                | Command to kick users from a queue.                                                                                               | `kick` |
-| limitCmd               | Command to set queue size limit.                                                                                                  | `limit` |
-| mentionCmd             | Command to mention all users in a queue.                                                                                          | `mention` |
-| modeCmd                | Command to set the display messaging mode.                                                                                        | `mode` |
-| myQueuesCmd            | Command to display a member's position in each queue they have joined.                                                            | `mode` |
-| nextCmd                | Command to pull the next user from a text channel.                                                                                | `next` |
-| prefixCmd              | Command to set the command prefix.                                                                                                | `prefix` |
-| pullNumCmd             | Command to set the number of people pulled at once.                                                                               | `pullnum` |
-| queueCmd               | Command to create / list queues.                                                                                                  | `queue` |
-| queueDeleteCmd         | Command to delete a queues.                                                                                                       | `delete` |
-| shuffleCmd             | Command to shuffle the queue.                                                                                                     | `shuffle` |
-| startCmd               | Command to make the bot join a voice channel.                                                                                     | `start` |
+| QB_CMD_AUTOFILL            | Command to toggle autofill.                                                                                                       | `autofill` |
+| QB_CMD_BLACKLIST           | Command to set and display blacklist.                                                                                             | `blacklist` |
+| QB_CMD_CLEANUP             | Command to toggle command cleanup.                                                                                                | `cleanup` |
+| QB_CMD_CLEAR               | Command to clear the queue.                                                                                                       | `clear` |
+| QB_CMD_COLOR               | Command to set the color.                                                                                                         | `color` |
+| QB_CMD_DISPLAY             | Command to display a queue in a text channel.                                                                                     | `display` |
+| QB_CMD_GRACE_PERIOD         | Command to set the grace period.                                                                                                  | `grace` |
+| QB_CMD_HEADER              | Command to set the header of a queue.                                                                                             | `header` |
+| QB_CMD_HELP                | Command to display the help information.                                                                                          | `help` |
+| QB_CMD_JOIN                | Command to join a text channel queue.                                                                                             | `join` |
+| QB_CMD_KICK                | Command to kick users from a queue.                                                                                               | `kick` |
+| QB_CMD_LIMIT               | Command to set queue size limit.                                                                                                  | `limit` |
+| QB_CMD_MENTION             | Command to mention all users in a queue.                                                                                          | `mention` |
+| QB_CMD_MODE                | Command to set the display messaging mode.                                                                                        | `mode` |
+| QB_CMD_MY_QUEUES            | Command to display a member's position in each queue they have joined.                                                            | `myqueues` |
+| QB_CMD_NEXT                | Command to pull the next user from a text channel.                                                                                | `next` |
+| QB_CMD_PREFIX              | Command to set the command prefix.                                                                                                | `prefix` |
+| QB_CMD_PULL_NUM             | Command to set the number of people pulled at once.                                                                               | `pullnum` |
+| QB_CMD_QUEUE               | Command to create / list queues.                                                                                                  | `queue` |
+| QB_CMD_QUEUE_DELETE         | Command to delete a queues.                                                                                                       | `delete` |
+| QB_CMD_SHUFFLE             | Command to shuffle the queue.                                                                                                     | `shuffle` |
+| QB_CMD_START               | Command to make the bot join a voice channel.                                                                                     | `start` |
 
 ![Token Location](docs/token_location.PNG)  
 
-5. [Install NodeJS 12+](https://discordjs.guide/preparations/#installing-node-js)  
-6. [Install Node-gyp](https://github.com/nodejs/node-gyp#installation)
-7. Install Dependencies. Open commmand prompt in project directory (If you have the project open in file explorer, click on the directory bar, enter `cmd`, and hit enter). Enter `npm i` into command prompt. Keep the command prompt open.  
-8. Build the bot. In the same command prompt, enter `npm run build`.  
-9. Start the Bot. Enter `npm start` into command prompt. If you get an error at boot, there is something wrong in your config.json. When you close command prompt, the bot will stop.  
-10. **Optional**. Make the bot run in the background, so you don't need command prompt open.  
-	9a. In command prompt, enter `npm install pm2`  
-	9b. To start the bot, enter `pm2 start bot.js --time`  
-	9c. To stop the bot, enter `pm2 stop bot.js`  
+1. [Install NodeJS 12+](https://discordjs.guide/preparations/#installing-node-js)  
+2. Install Dependencies. Open commmand prompt in project directory (If you have the project open in file explorer, click on the directory bar, enter `cmd`, and hit enter). Enter `npm i` into command prompt. Keep the command prompt open.  
+3. Start the Bot. Enter `npm start` into command prompt. 
+
+   Use `npm run dev` to have the bot autoreload on code change. 
+
+   If you get an error at boot, there is something wrong in your config.json. When you close command prompt, the bot will stop.
